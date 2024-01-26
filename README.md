@@ -1,7 +1,17 @@
 # Tracee
-This repo contains a zarf package and the necessary steps to deploy Tracee. [Tracee](https://www.aquasec.com/products/tracee/) is a runtime eBPF threat detection engine.
 
-## Steps to deploy Tracee
+[Tracee](https://www.aquasec.com/products/tracee/) is an open source runtime security threat detection engine developed by Aqua Security. Tracy performs runtime security monitoring but uses eBPF instead of working at the application layer like Neuvector does.
+
+Some high-level notes about Tracee (specifically compared to Neuvector):
+
+- Tracee is licensed under the [Apache 2.0 License](https://github.com/aquasecurity/tracee/blob/main/LICENSE)
+- Tracee does NOT come with a GUI like Neuvector. You can use other tools like [Falcosidekick]( https://github.com/falcosecurity/falcosidekick) as a message relay. Additionaly (as documented below), you can use the PLG (Promtail, Loki, Grafana) stack for some visualizations.
+- Tracee only alerts on rules but does not act on rules. I.e., it is ONLY an intrusion detection system (IDS), not an intrusion prevention system (IPS).
+- Tracee does not offer many of the other features that Neuvector does. For example, as mentioned above, it is not an IPS, and it also does not perform runtime or CI/CD image scanning.
+- ADD MORE THINGS HERE - EX: talk about helm charts, policies/events (CAC) and other elements of the runtime security comparison chart
+- Given the above, Tracee is much more lightweight than Neuvector.
+
+## Kubernetes quickstart guide
 
 1.) Have a running K3d cluster with DUBBD (Defense Unicorns BigBang Distro) 0.17.0+ and Metallb deployed
 
@@ -100,3 +110,12 @@ kubectl logs -f ds/tracee -n tracee-system | grep fileless_execution
 
 8.) You also should be able to see the metrics now on the Tracee Dashboard in Grafana. Additionally, you can go to (in Grafana) Explore -> select 'Loki' as your datasource and query:
 'Label filter': 'app_kubernetes_io_instance" = "tracee" and 'Line contains' = "fileless_execution" to see more details on the events.
+
+## Additional resources
+
+[Overview](https://aquasecurity.github.io/tracee/v0.19/) \
+[Github repo](https://github.com/aquasecurity/tracee) \
+[Grafana Dashboard](https://aquasecurity.github.io/tracee/latest/tutorials/deploy-grafana-dashboard/) \
+[PLG Integration](https://aquasecurity.github.io/tracee/latest/tutorials/promtail/) \
+[Policies](https://aquasecurity.github.io/tracee/v0.19/docs/policies/) \
+[Events](https://aquasecurity.github.io/tracee/v0.19/docs/events/) \
