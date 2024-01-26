@@ -1,0 +1,22 @@
+kind: ZarfPackageConfig
+metadata:
+  name: tracee
+  description: "Runtime eBPF threat detection engine"
+  architecture: amd64
+
+components:
+  - name: tracee
+    description: "Runtime eBPF threat detection engine"
+    required: true
+    repos:
+      - https://github.com/aquasecurity/tracee.git
+    manifests:
+      - name: tracee-helm
+        namespace: tracee-system
+        files:
+          - manifests/namespace.yaml
+          - manifests/gitrepository.yaml
+          - manifests/helmrelease.yaml
+          - manifests/service.yaml
+    images:
+      - 'docker.io/aquasec/tracee:0.19.0'

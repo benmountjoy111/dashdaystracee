@@ -1,0 +1,13 @@
+*.zst
+*.iso
+*.zip
+zarf-sbom/
+scratch/
+.DS_Store
+.vscode/
+.env
+.vscode
+.idea/
+.default_env
+sbom/
+build/

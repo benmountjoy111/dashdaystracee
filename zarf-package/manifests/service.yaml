@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tracee
+  namespace: tracee-system
+spec:
+  ports:
+  - name: metrics
+    protocol: TCP
+    port: 3366
+    targetPort: 3366
+  selector:
+    app.kubernetes.io/instance: tracee
+  type: ClusterIP
