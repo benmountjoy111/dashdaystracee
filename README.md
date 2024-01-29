@@ -15,7 +15,7 @@ Some high-level notes about Tracee (specifically compared to Neuvector):
 
 ## Kubernetes quickstart guide
 
-1.) Have a running K3d cluster with DUBBD (Defense Unicorns BigBang Distro) 0.17.0+ and Metallb deployed
+1.) Have a running kubernetes cluster with DUBBD (Defense Unicorns BigBang Distro) 0.17.0+
 
 2.) Add the following kyverno exceptions (required for Tracee ro run):
 
