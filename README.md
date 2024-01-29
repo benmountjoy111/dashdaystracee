@@ -5,11 +5,13 @@
 Some high-level notes about Tracee (specifically compared to Neuvector):
 
 - Tracee is licensed under the [Apache 2.0 License](https://github.com/aquasecurity/tracee/blob/main/LICENSE)
-- Tracee does NOT come with a GUI like Neuvector. You can use other tools like [Falcosidekick]( https://github.com/falcosecurity/falcosidekick) as a message relay. Additionaly (as documented below), you can use the PLG (Promtail, Loki, Grafana) stack for some visualizations.
+- Tracee does have upstream [helm charts](https://github.com/aquasecurity/tracee/tree/main/deploy/helm)
+- Tracee does NOT come with a UI like Neuvector. You can use other tools like [Falcosidekick]( https://github.com/falcosecurity/falcosidekick) as a message relay. Additionaly (as documented below), you can use the PLG (Promtail, Loki, Grafana) stack for some visualizations.
 - Tracee only alerts on rules but does not act on rules. I.e., it is ONLY an intrusion detection system (IDS), not an intrusion prevention system (IPS).
-- Tracee does not offer many of the other features that Neuvector does. For example, as mentioned above, it is not an IPS, and it also does not perform runtime or CI/CD image scanning.
-- ADD MORE THINGS HERE - EX: talk about helm charts, policies/events (CAC) and other elements of the runtime security comparison chart
-- Given the above, Tracee is much more lightweight than Neuvector.
+- Tracee does not offer many of the other features that Neuvector does. For example, as mentioned above, it is not an IPS, thefore it cannot be used as a web applicationn firewall.
+- Tracee also is not able to do any sort of image security. That is, it cannot perform image whitelisting, nor any runtime or CI/CD image scanning.
+- Tracee does allow configuration as code via creating [policies](https://aquasecurity.github.io/tracee/v0.19/docs/policies/) 
+- Given the above information, it must be noted that Tracee is much more lightweight than Neuvector.
 
 ## Kubernetes quickstart guide
 
