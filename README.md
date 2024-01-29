@@ -120,4 +120,4 @@ kubectl logs -f ds/tracee -n tracee-system | grep fileless_execution
 [Grafana Dashboard](https://aquasecurity.github.io/tracee/latest/tutorials/deploy-grafana-dashboard/) \
 [PLG Integration](https://aquasecurity.github.io/tracee/latest/tutorials/promtail/) \
 [Policies](https://aquasecurity.github.io/tracee/v0.19/docs/policies/) \
-[Events](https://aquasecurity.github.io/tracee/v0.19/docs/events/) \
+[Events](https://aquasecurity.github.io/tracee/v0.19/docs/events/)
